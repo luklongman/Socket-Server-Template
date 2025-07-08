@@ -1,20 +1,35 @@
 {
-  "name": "Socket-Server-Template",
+  "name": "websocket-server",
   "version": "1.0.0",
-  "description": "Web Socket Node Server Example",
+  "description": "Production-ready WebSocket server with authentication, rate limiting, and monitoring",
   "main": "main.js",
-  "author": "Torin Blankensmith",
-  "license": "MIT",
-  "private": false,
   "scripts": {
-    "start": "node ./main.js",
-    "dev": "NODE_ENV=development PORT=5000 node ./main.js"
-  },
-  "engines": {
-    "node": ">=8.9.0"
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop websocket-server",
+    "pm2:restart": "pm2 restart websocket-server",
+    "pm2:logs": "pm2 logs websocket-server",
+    "pm2:monit": "pm2 monit"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "ws": "^8.2.2"
-  }
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "winston": "^3.11.0",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "pm2": "^6.0.8"
+  },
+  "keywords": [
+    "websocket",
+    "express",
+    "production",
+    "pm2",
+    "winston",
+    "rate-limiting"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
 }
